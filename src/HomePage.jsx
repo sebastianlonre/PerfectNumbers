@@ -3,8 +3,31 @@ import { PerfectNumber } from './components/PerfectNumber';
 
 export const HomePage = () => {
 
-  const [minRange, setMinRange] = useState(6);
-  const [maxRange, setMaxRange] = useState(500);
+  const [minRange, setMinRange] = useState(() => {
+
+    const savedMinRange = localStorage.getItem('minRange');
+    return savedMinRange ? parseInt(savedMinRange, 10) : 6;
+
+  });
+
+  const [maxRange, setMaxRange] = useState(() => {
+
+    const savedMaxRange = localStorage.getItem('maxRange');
+    return savedMaxRange ? parseInt(savedMaxRange, 10) : 500;
+
+  });
+
+  const handleMinRangeChange = (e) => {
+    const newValue = parseInt(e.target.value);
+    setMinRange(newValue);
+    localStorage.setItem('minRange', newValue);
+  };
+
+  const handleMaxRangeChange = (e) => {
+    const newValue = parseInt(e.target.value);
+    setMaxRange(newValue);
+    localStorage.setItem('maxRange', newValue);
+  };
 
   return (
     <>
@@ -13,13 +36,13 @@ export const HomePage = () => {
         <input
           type="number"
           value={minRange}
-          onChange={(e) => setMinRange(parseInt(e.target.value))}
+          onChange={handleMinRangeChange}
         />
 
         <input
           type="number"
           value={maxRange}
-          onChange={(e) => setMaxRange(parseInt(e.target.value))}
+          onChange={handleMaxRangeChange}
         />
 
         <button>Encuentra numeros perfectos</button>
