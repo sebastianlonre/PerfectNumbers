@@ -31,7 +31,7 @@ export const HomePage = () => {
 
   return (
     <>
-      <div>
+      <div className='div_center'>
 
         <input
           type="number"
@@ -44,8 +44,6 @@ export const HomePage = () => {
           value={maxRange}
           onChange={handleMaxRangeChange}
         />
-
-        <button>Encuentra numeros perfectos</button>
 
         <PerfectNumber minRange={minRange} maxRange={maxRange}/>
 

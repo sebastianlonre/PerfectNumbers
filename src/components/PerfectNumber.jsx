@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const PerfectNumber = ({ minRange, maxRange }) => {
+
+    const [perfectNumbers, setPerfectNumbers] = useState([]);
 
     const IsPerfectNumber =( number )=>{
     
@@ -19,31 +21,31 @@ export const PerfectNumber = ({ minRange, maxRange }) => {
         return sum === number;
     }
 
-    const findPerfectNumbers = ( minRange, maxRange ) => {
+    useEffect(() => {
 
-        if (minRange < 2) minRange = 2;
-        if (minRange > 6 && minRange < 28) minRange = 28; 
-        if (minRange % 2 !== 0) minRange++;
+      const findPerfectNumbers = (minRange, maxRange) => {
+          if (minRange < 2) minRange = 2;
+          if (minRange > 6 && minRange < 28) minRange = 28;
+          if (minRange % 2 !== 0) minRange++;
 
-        let arrayPerfectNumbers = [];
+          let arrayPerfectNumbers = [];
 
-        for (let i=minRange; i<=maxRange; i+=2){
-            if (IsPerfectNumber(i)){
-                arrayPerfectNumbers.push(i);
-            }
-        }
+          for (let i = minRange; i <= maxRange; i += 2) {
+              if (IsPerfectNumber(i)) {
+                  arrayPerfectNumbers.push(i);
+              }
+          }
+          setPerfectNumbers(arrayPerfectNumbers);
+      };
 
-        return arrayPerfectNumbers;
-
-    }
-
-    const perfectNumbers = findPerfectNumbers(minRange,maxRange);
+      findPerfectNumbers(minRange, maxRange);
+  }, [minRange, maxRange]);
 
   return (
     <>
          {perfectNumbers.length > 0 && (
         <div>
-          <h3>Numeros perfectos encontrados:</h3>
+          <h3>Numeros perfectos encontrados</h3>
           <ul>
             {perfectNumbers.map((number) => (
               <li key={number}>{number}</li>
