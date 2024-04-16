@@ -22,6 +22,8 @@ export const HomePage = () => {
           onChange={(e) => setMaxRange(parseInt(e.target.value))}
         />
 
+        <button>Encuentra numeros perfectos</button>
+
         <PerfectNumber minRange={minRange} maxRange={maxRange}/>
 
       </div>
