@@ -3,30 +3,31 @@ import React from 'react';
 export const PerfectNumber = ({ minRange, maxRange }) => {
 
     const IsPerfectNumber =( number )=>{
-
+    
         let sum = 1;
 
-        for (let i = 2; i * i <= number; i++) {
+        for (let i = 2; i <= Math.sqrt(number); i++) {
 
             if (number % i === 0) {
-
                 sum += i;
-
-                if (i * i !== number) {
+                if (i !== Math.sqrt(number)) {
                     sum += number / i;
                 }
-
             }
-        }
+    }
 
-        return sum === number && number !== 1;
+        return sum === number;
     }
 
     const findPerfectNumbers = ( minRange, maxRange ) => {
 
+        if (minRange < 2) minRange = 2;
+        if (minRange > 6 && minRange < 28) minRange = 28; 
+        if (minRange % 2 !== 0) minRange++;
+
         let arrayPerfectNumbers = [];
-        
-        for (let i=minRange; i<=maxRange; i++){
+
+        for (let i=minRange; i<=maxRange; i+=2){
             if (IsPerfectNumber(i)){
                 arrayPerfectNumbers.push(i);
             }
@@ -40,11 +41,21 @@ export const PerfectNumber = ({ minRange, maxRange }) => {
 
   return (
     <>
-        <ul>
-            {perfectNumbers.map((num)=>(
-                <li key={num}>{num}</li>
+         {perfectNumbers.length > 0 && (
+        <div>
+          <h3>Numeros perfectos encontrados:</h3>
+          <ul>
+            {perfectNumbers.map((number) => (
+              <li key={number}>{number}</li>
             ))}
-        </ul>
+          </ul>
+        </div>
+      )}
+       {perfectNumbers.length === 0 && (
+        <div>
+          <h3>En el rango no hay numeros perfectos</h3>
+        </div>
+      )}
     </>
   );
 };

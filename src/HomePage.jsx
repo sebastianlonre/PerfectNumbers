@@ -3,7 +3,7 @@ import { PerfectNumber } from './components/PerfectNumber';
 
 export const HomePage = () => {
 
-  const [minRange, setMinRange] = useState(1);
+  const [minRange, setMinRange] = useState(6);
   const [maxRange, setMaxRange] = useState(500);
 
   return (
