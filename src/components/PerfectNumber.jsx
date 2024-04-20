@@ -5,11 +5,12 @@ export const PerfectNumber = ({ minRange, maxRange }) => {
     const [perfectNumbers, setPerfectNumbers] = useState([]);
 
     //Algortimo para determinar si un numero es perfecto
-    const IsPerfectNumber =( number )=>{
+    const IsPerfectNumber = ( number )=>{
     
         let sum = 1;
         //En el ciclo se itera hasta la raíz cuadrada del número
-        //Porque en un numero perfecto su raiz siempre sera inferior
+        //Porque en un numero perfecto su raiz siempre sera inferio
+ 
         for (let i = 2; i <= Math.sqrt(number); i++) {
             //Se verifica que el valor de la i sea divisor de number
             if (number % i === 0) {
@@ -20,7 +21,7 @@ export const PerfectNumber = ({ minRange, maxRange }) => {
                 // el divisor correspondiente de i a la suma.
 
                 if (i !== Math.sqrt(number)) {
-                    sum += number / i;
+                  sum += number / i;
                 }
             }
     }
@@ -49,25 +50,8 @@ export const PerfectNumber = ({ minRange, maxRange }) => {
       };
 
       findPerfectNumbers(minRange, maxRange);
+
   }, [minRange, maxRange]);
 
-  return (
-    <>
-         {perfectNumbers.length > 0 && (
-        <div>
-          <h3>Numeros perfectos encontrados</h3>
-          <ul>
-            {perfectNumbers.map((number) => (
-              <li key={number}>{number}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-       {perfectNumbers.length === 0 && (
-        <div>
-          <h3>En el rango no hay numeros perfectos</h3>
-        </div>
-      )}
-    </>
-  );
+  return perfectNumbers.join(', ');
 };
