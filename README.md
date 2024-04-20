@@ -1,8 +1,32 @@
-# React + Vite
+# Perfect Number Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación web simple que encuentra números perfectos dentro de un rango especificado por el usuario.
 
-Currently, two official plugins are available:
+## Caracteristicas
+- Encuentra numeros perfectos en un rango.
+- Almacenamiento local de los ultimos valores ingresados.
+- Interfaz intuitiva
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## instalación
+1. Clona este repositorio git clone https://github.com/sebastianlonre/PerfectNumbers.git
+2. Ir al directorio
+3. Ejecutar "npm install"
+4. Ejecutar "npm run dev"
+
+## uso
+
+1. Abrir la aplicación en el navegador web.
+2. Ingresa datos en cada casilla de texto, estos serán el rango.
+3. La aplicación mostrara de manera automatica los numeros perfectos.
+
+##Tecnologias
+
+- React
+- HTML
+- CSS
+
+## Realizado por
+
+Sebastián Londoño Restrepo
+
+
