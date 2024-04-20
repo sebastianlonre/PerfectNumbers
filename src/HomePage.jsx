@@ -32,6 +32,8 @@ export const HomePage = () => {
     localStorage.setItem('maxRange', newValue);
   };
 
+  const perfectNumbersData = PerfectNumber(minRange,maxRange)
+
   return (
     <>
       <div className='div_center'>
@@ -48,8 +50,18 @@ export const HomePage = () => {
           onChange={handleMaxRangeChange}
         />
 
-        <PerfectNumber minRange={minRange} maxRange={maxRange}/>
+      </div>
 
+      <div>
+      <ul>
+        {perfectNumbersData.length > 0 ? (
+          perfectNumbersData.map((number, index) => (
+            <li key={index}>{number}</li>
+          ))
+        ) : (
+          <li>No hay números perfectos en el rango dado.</li>
+        )}
+      </ul>
       </div>
     </>
   )
